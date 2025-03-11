@@ -3,38 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" href="../static/assets/img/cat.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../static/assets/img/cat.png" type="image/x-icon">
     <title>Projeto Meow</title>
 </head>
 <body>
     <header>
-        <img src="" alt="logo" />
+        <img src="../static/assets/img/cat.png" alt="Imagem de um gato">
         <h1>Projeto Meow</h1>
     </header>
     <main>
         <div class="container">
             <div class="form">
-                <form action="/" method="post">
-                    <label>Informe seu nome</label>
-                    <input type="text" name="nome" />
+                <form action="/submit" method="post">
+                    <label for="name">Informe seu nome:</label>
+                    <input type="text" name="name" id="name" required>
                     <button type="submit">Enviar</button>
                 </form>
             </div>
-            <div class="gato">
-                {% if not url_imagem %}
-                    <img src="..." alt="..." />
+
+            <div class="cat" id="capturaArea">
+                <figure>
+                {% if not url %}
+                    <img src="../static/assets/img/404.jpg" alt="Imagem de interrogação">
                 {% else %}
-                    <img src="{{url_imagem}}" />
-                    <p>{{ nome }}</p>
+                    <img src="{{url}}" alt="Imagem de gato">
+                </figure>
+                <p>{{nome}}</p>
                 {% endif %}
-                {% if erro %}
-                    <p>{{ erro }}</p>
-                {% endif %}
-                <p>Nome do gato</p>
             </div>
+
         </div>
     </main>
     <footer>
-        <p>Enfrente me! Se for capaz!</p>
+        <p>🐱👢 Enfrente me! Se for capaz! ⚔🤺</p>
     </footer>
+
+
+
 </body>
 </html>
